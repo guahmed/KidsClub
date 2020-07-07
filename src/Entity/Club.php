@@ -46,12 +46,11 @@ class Club
      */
     private $compteClubs;
 
-    /**
+        /**
      * @ORM\ManyToOne(targetEntity=Manager::class, inversedBy="club")
      * @ORM\JoinColumn(nullable=false)
      */
     private $manager;
-
 
     /**
      * @ORM\Column(type="string", length=255)

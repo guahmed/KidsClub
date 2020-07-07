@@ -24,7 +24,7 @@ class Manager extends Personne
      */
     private $role;
 
-    /**
+   /**
      * @ORM\OneToMany(targetEntity=Club::class, mappedBy="manager")
      */
     private $club;

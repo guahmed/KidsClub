@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block body %}
+<h1>Inscription enfant:</h1>
+<div class="container">
+
+<form action="" method="post">
+
+    <div class="form-group">
+        <label >Nom</label>
+        <input type="text" class="form-control" placeholder="Nom">
+      </div>
+      <div class="form-group">
+        <label>Prenom</label>
+        <input type="text" class="form-control" placeholder="Prenom">
+      </div>
+      <div class="form-group">
+        <label >Age</label>
+        <input type="number" class="form-control" placeholder="Age">
+      </div>
+      <div class="form-group">
+        <label >Telephone</label>
+        <input type="text" class="form-control" placeholder="Telephone">
+      </div>
+      <div class="form-group">
+        <label >Adresse</label>
+        <input type="text" class="form-control" placeholder="Adresse">
+      </div>
+      <div class="form-group">
+        <label >Gouvernerat</label>
+        <input type="text" class="form-control" placeholder="Gouvernerat">
+      </div>
+      <div class="form-group">
+        <label >Code Postal </label>
+        <input type="text" class="form-control"  placeholder="Code Postal ">
+      </div>
+      <div class="form-group">
+        <label >Payemenbt selon les activités</label>
+        <select class="form-control" >
+          <option>80</option>
+          <option>100</option>
+          <option>150</option>
+        </select>
+      </div>
+
+</form>
+</div>
+
+
+{% endblock %}
