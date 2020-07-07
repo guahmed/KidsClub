@@ -35,11 +35,6 @@ class Club
      */
     private $image;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=ZoneGeo::class, inversedBy="clubs")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $zoneGeo;
 
     /**
      * @ORM\ManyToMany(targetEntity=Categorie::class)
@@ -56,6 +51,46 @@ class Club
      * @ORM\JoinColumn(nullable=false)
      */
     private $manager;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $govermnet;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $postalCode;
+
+    public function getGovermnet(): ?string
+    {
+        return $this->govermnet;
+    }
+
+    public function setGovermnet(string $govermnet): self
+    {
+        $this->govermnet = $govermnet;
+
+        return $this;
+    }
+
+    public function getPostalCode(): ?int
+    {
+        return $this->postalCode;
+    }
+
+    public function SetPostalCode(string $postalCode): self
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
+    }
+    
+
+
+
+
 
     public function __construct()
     {
@@ -92,19 +127,9 @@ class Club
         return $this;
     }
 
-    public function getZoneGeo(): ?ZoneGeo
-    {
-        return $this->zoneGeo;
-    }
+ 
 
-    
 
-    public function setZoneGeo(?ZoneGeo $zoneGeo): self
-    {
-        $this->zoneGeo = $zoneGeo;
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {

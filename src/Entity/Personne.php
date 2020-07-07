@@ -42,86 +42,107 @@ abstract class  Personne
      */
     protected $adress;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=ZoneGeo::class)
-     * @ORM\JoinColumn(nullable=false)
+       /**
+     * @ORM\Column(type="string", length=255)
      */
-    protected $zoneGeo;
+    protected $govermnet;
 
-    protected function getId(): ?int
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $postalCode;
+
+
+
+
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    protected function getName(): ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    protected function setName(string $name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    protected function getLastName(): ?string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
 
-    protected function setLastName(string $lastName): self
+    public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
 
         return $this;
     }
 
-    protected function getAge(): ?int
+    public function getAge(): ?int
     {
         return $this->age;
     }
 
-    protected function setAge(int $age): self
+    public function setAge(int $age): self
     {
         $this->age = $age;
 
         return $this;
     }
 
-    protected function getTelphone(): ?string
+    public function getTelphone(): ?string
     {
         return $this->telphone;
     }
 
-    protected function setTelphone(string $telphone): self
+    public function setTelphone(string $telphone): self
     {
         $this->telphone = $telphone;
 
         return $this;
     }
 
-    protected function getAdress(): ?string
+    public function getAdress(): ?string
     {
         return $this->adress;
     }
 
-    protected function setAdress(string $adress): self
+    public function setAdress(string $adress): self
     {
         $this->adress = $adress;
 
         return $this;
     }
 
-    protected function getZoneGeo(): ?ZoneGeo
+    public function getGovermnet(): ?string
     {
-        return $this->zoneGeo;
+        return $this->govermnet;
     }
 
-    protected function setZoneGeo(?ZoneGeo $zoneGeo): self
+    public function setGovermnet(string $govermnet): self
     {
-        $this->zoneGeo = $zoneGeo;
+        $this->govermnet = $govermnet;
 
         return $this;
     }
+
+    public function getPostalCode(): ?int
+    {
+        return $this->postalCode;
+    }
+
+    public function SetPostalCode(string $postalCode): self
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+
 }
