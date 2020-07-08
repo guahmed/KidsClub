@@ -2,18 +2,40 @@
 
 
 {% block body %}
-{% for club in clubs %}
 
-<ul class="list-group">
+<h1>Suivi des payment</h1>
 
-    <li class="list-group-item"> {{club.name}}</li>
-   
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
 
-  </ul>
 
-{% endfor %}
+<label> Name du Club:  {{bills[0].club.name}}</label>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Nom l'enfant inscrit</th>
+        <th scope="col">Prenom </th>
+        <th scope="col">Montant</th>
+        <th scope="col">Etat du payment</th>
+        <th scope="col">Reglement  </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for bill in bills %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{bill.enfant.name}}</td>
+        <td>{{bill.enfant.lastName}}</td>
+        <td>{{bill.monthlyBill}}</td>
+        <td>{{bill.paymentStatus}}  </td>
+          <td>  <a href="{{path('payement',{'id':bill.id})}}" class="btn btn-primary">Payer</a>  
+        </td>
+      </tr>
+      {% endfor %}
+     
+    </tbody>
+ 
+  </table>
+ 
+
 {% endblock %}

@@ -18,13 +18,13 @@ class CompteClub
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Children::class, inversedBy="compteClubs")
+     * @ORM\ManyToOne(targetEntity=Children::class,fetch="EAGER", inversedBy="compteClubs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $enfant;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Club::class, inversedBy="compteClubs")
+     * @ORM\ManyToOne(targetEntity=Club::class,fetch="EAGER", inversedBy="compteClubs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $club;
@@ -33,6 +33,12 @@ class CompteClub
      * @ORM\Column(type="integer")
      */
     private $monthlyBill;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $paymentStatus;
+
 
     public function getId(): ?int
     {
@@ -71,6 +77,18 @@ class CompteClub
     public function setMonthlyBill(int $monthlyBill): self
     {
         $this->monthlyBill = $monthlyBill;
+
+        return $this;
+    }
+
+    public function getPaymentStatus(): ?string
+    {
+        return $this->paymentStatus;
+    }
+
+    public function setPaymentStatus(string $paymentStatus): self
+    {
+        $this->paymentStatus = $paymentStatus;
 
         return $this;
     }

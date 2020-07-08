@@ -18,28 +18,51 @@ class MangerController extends AbstractController
 
 
     /**
-     * @Route("/managerhome", name="managerhome")
+     * @Route("/paymenntBill/{id}", name="payement")
      */
-    public function managerhome(ClubRepository $repoClub,CompteClubRepository $repoCompteClub)
+    public function paymenntBill(CompteClubRepository $repoClubCompte,$id,EntityManagerInterface $manager)
     {
 
-        $clubs=$repoClub->findByManager(5);
-        $tab_Id=array();
+        $bill=$repoClubCompte->findOneById($id);
+        $bill->setPaymentStatus("Payé");
 
+        $manager->persist($bill);
+        $manager->flush();
+
+         return $this->redirectToRoute('managerhome');
+        }
+    /**
+     * @Route("/managerhome", name="managerhome")
+     */
+    public function managerhome(ClubRepository $repoClub,CompteClubRepository $repoCompteClub,Request $request)
+    {
+
+
+        $tab_Id=array();
+        $tabCompteClub=array();
+
+        $clubs=$repoClub->findByManager(5);
+        $bill=$repoCompteClub->findByClub(2);
+        //dump($bill);
+
+        dump($request);
+        /*
         foreach( $clubs as $club){
            array_push($tab_Id, $club->getId());
-           $info=$club->getCompteClubs();
+            $info=$club->getCompteClubs();
+           array( $tabCompteClub,$repoCompteClub->findOneByClub(2))
+
            
-          // dump($info);
+        //  dump($info);
             }
             $bill=$repoCompteClub->findByClub(2);
             dump($bill);
         
-        
+        */
 
 
 
-         return $this->render('manager/mainPageManager.html.twig',['clubs'=>$clubs]);
+         return $this->render('manager/mainPageManager.html.twig',['bills'=>$bill]);
 
         }
 
@@ -73,7 +96,7 @@ class MangerController extends AbstractController
 
         }
 
-        return $this->render('manager/InscriptionParent.html.twig');
+        return $this->render('manager/InscriptionManager.html.twig');
     }
     }
 
