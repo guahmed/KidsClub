@@ -98,6 +98,7 @@ class ParentController extends AbstractController
             $parent->setAdress($request->request->get('Adresse'));
             $parent->setGovermnet($request->request->get('Gouvernerat'));
             $parent->SetPostalCode($request->request->get('CodePostal'));
+            $parent->setPassword($request->request->get('Password'));
             $parent->setRole("parent");
 
             $manager->persist($parent);

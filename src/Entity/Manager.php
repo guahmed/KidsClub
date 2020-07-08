@@ -24,6 +24,13 @@ class Manager extends Personne
      */
     private $role;
 
+
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
+
    /**
      * @ORM\OneToMany(targetEntity=Club::class, mappedBy="manager")
      */
@@ -47,6 +54,18 @@ class Manager extends Personne
     public function setRole(string $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }

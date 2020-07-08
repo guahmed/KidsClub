@@ -19,6 +19,7 @@ class ParentChild extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        
         for ( $i=0; $i<3 ;$i++)
         {
             $parent= new EntityParentChild();
@@ -29,6 +30,7 @@ class ParentChild extends Fixture
             $parent->setAdress($this->adress[$i]);
             $parent->setGovermnet($this->gouvernerat[$i]);
             $parent->SetPostalCode($this->codePostale[$i]);
+            $parent->setPassword("123456");
             $parent->setRole("parent");
             
             $manager->persist( $parent);

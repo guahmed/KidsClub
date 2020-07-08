@@ -16,7 +16,22 @@ class ParentChild extends Personne
      */
     private $role;
 
+        /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
 
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
     public function getRole(): ?string
     {
         return $this->role;

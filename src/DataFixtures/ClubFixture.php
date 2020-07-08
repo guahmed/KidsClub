@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Categorie;
 use App\Entity\Club;
 use App\Entity\Manager;
+use App\Repository\CategorieRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -22,6 +23,7 @@ class ClubFixture extends Fixture
         $manager1->setAdress("7 rue tabarka");
         $manager1->setGovermnet("Beja");
         $manager1->SetPostalCode(1888);
+        $manager1->setPassword("123456");
         $manager1->setRole("manager");
             
         $manager->persist( $manager1);
@@ -34,6 +36,7 @@ class ClubFixture extends Fixture
         $manager2->setAdress("7 rue tozeur");
         $manager2->setGovermnet("Tunis");
         $manager2->SetPostalCode(1992);
+        $manager2->setPassword("123456");
         $manager2->setRole("manager");
             
         $manager->persist( $manager2);
@@ -104,6 +107,23 @@ class ClubFixture extends Fixture
 
         $manager->flush();
 
+
+
+       // $categorieLangue=$repoCategory->findById(2);
+
+       /*
+        $club=new Club();
+        $club->setName("Club Kids langue");
+        $club->setAdress("9 rue hadi cheker");
+        $club->setImage("https://image.shutterstock.com/z/stock-vector-kids-club-vector-logo-template-365515709.jpg");
+        
+        $club->addCategorie($categorieLangue);
+        $club->setGovermnet("Kef");
+        $club->SetPostalCode(1556);
+*/
+
+       // $manager->persist($club);
+     //   $manager->flush();
     }
 
 }
