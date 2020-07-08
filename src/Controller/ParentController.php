@@ -63,10 +63,11 @@ class ParentController extends AbstractController
             $child->setAdress($request->request->get('Adresse'));
             $child->setGovermnet($request->request->get('Gouvernerat'));
             $child->SetPostalCode($request->request->get('CodePostal'));
+            
             $child->setRole("children");
 
             $compteClub = new CompteClub();
-            $compteClub->setMonthlyBill($request->request->get("Payemenbt"));
+            $compteClub->setPaymentStatus($request->request->get("Payemenbt"));
             $compteClub->setEnfant($child);
             $compteClub->setClub($club);
 

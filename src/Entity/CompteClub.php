@@ -19,7 +19,7 @@ class CompteClub
 
     /**
      * @ORM\ManyToOne(targetEntity=Children::class,fetch="EAGER", inversedBy="compteClubs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn()
      */
     private $enfant;
 
